@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 
-/* Navegação padrão */
+/* Navegação padrão (desktop) */
 .nav-menu {
   display: flex;
   gap: 30px;
@@ -90,7 +90,7 @@
     align-items: center;
     gap: 25px;
     position: absolute;
-    top: 70px;
+    top: 90px; /* Espaçamento ideal abaixo do header */
     left: 0;
     width: 100%;
     padding: 25px 0;
