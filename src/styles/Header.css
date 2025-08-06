@@ -12,6 +12,22 @@
   overflow: hidden;
 }
 
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0%;
+  background-color: #00ffff;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a.active::after {
+  width: 100%;
+}
+
 /* Quando o menu estiver aberto */
 .glass-header.expanded {
   height: 260px; /* Altura extra para mostrar os links */
