@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -75,18 +76,32 @@
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    z-index: 1001;
   }
 
   .nav-menu {
     display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
     flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-    gap: 15px;
-    margin-right: 100px;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
   }
 
   .nav-menu.open {
     display: flex;
+  }
+
+  .nav-menu a {
+    font-size: 16px;
   }
 }
