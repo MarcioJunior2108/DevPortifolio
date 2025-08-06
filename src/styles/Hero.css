@@ -175,7 +175,7 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .titulo {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .descricao {
