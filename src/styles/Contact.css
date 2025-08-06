@@ -1,0 +1,138 @@
+.contato {
+  padding: 100px 40px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.titulo-contato {
+  font-size: 2.5rem;
+  color: #00cfff;
+  text-align: center;
+}
+
+.subtitulo-contato {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #ccc;
+}
+
+.conteudo-contato {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.info-contato {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-contato h4 {
+  color: #00cfff;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+.linha-contato {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0f0f0f;
+  padding: 14px 16px;
+  border: 1px solid #222;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.linha-contato svg {
+  color: #00cfff;
+  font-size: 1.1rem;
+}
+
+.especialidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.especialidades span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.especialidades span:nth-child(1) svg { color: #00cfff; }
+.especialidades span:nth-child(2) svg { color: #a64bf4; }
+.especialidades span:nth-child(3) svg { color: #4af0d3; }
+.especialidades span:nth-child(4) svg { color: #3edb69; }
+
+.formulario-contato {
+  flex: 1;
+  min-width: 320px;
+  background-color: #0b0d12;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid #1a1a1a;
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+  background-color: #14161b;
+  border: 1px solid #2a2a2a;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.formulario-contato input::placeholder,
+.formulario-contato textarea::placeholder {
+  color: #888;
+}
+
+.formulario-contato button {
+  background: linear-gradient(90deg, #00cfff, #007bff);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.formulario-contato button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .conteudo-contato {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formulario-contato,
+  .info-contato {
+    width: 100%;
+  }
+}
