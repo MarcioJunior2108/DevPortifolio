@@ -88,7 +88,7 @@
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 10px;
+    top: 7px;
     right: 25px;
     z-index: 2001;
   }
