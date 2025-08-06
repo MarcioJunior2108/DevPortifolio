@@ -42,7 +42,7 @@ function Header() {
         </div>
 
         <nav className={`nav-menu ${isOpen ? 'open' : ''}`}>
-          <a href="hero" className={activeSection === 'hero' ? 'active' : ''}>Início</a>
+          <a href="#hero" className={activeSection === 'hero' ? 'active' : ''}>Início</a>
           <a href="#about" className={activeSection === 'about' ? 'active' : ''}>Sobre</a>
           <a href="#projetos" className={activeSection === 'projetos' ? 'active' : ''}>Projetos</a>
           <a href="#contato" className={activeSection === 'contato' ? 'active' : ''}>Contato</a>
