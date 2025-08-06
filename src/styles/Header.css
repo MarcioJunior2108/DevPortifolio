@@ -8,8 +8,16 @@
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: height 0.3s ease;
+  overflow: hidden;
 }
 
+/* Quando o menu estiver aberto, header aumenta de altura */
+.glass-header.expanded {
+  height: 260px; /* altura suficiente para mostrar o menu */
+}
+
+/* Container principal do header */
 .header-container {
   max-width: 1200px;
   margin: auto;
@@ -19,6 +27,7 @@
   position: relative;
 }
 
+/* Logo */
 .logo {
   color: #00ffff;
   font-family: monospace;
@@ -79,34 +88,21 @@
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 1px;
+    top: 20px;
     right: 25px;
     z-index: 2001;
   }
 
   .nav-menu {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    position: absolute;
-    top: 8px; /* Espaçamento ideal abaixo do header */
-    left: 0;
-    width: 120%;
-    padding: 25px 0;
-    background-color: rgba(0, 0, 0, 0.95);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 2000;
+    gap: 20px;
+    padding-top: 70px; /* deixa espaço para logo e ícone */
   }
 
-  .nav-menu.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
+  .glass-header.expanded .nav-menu {
+    display: flex;
   }
 
   .nav-menu a {
