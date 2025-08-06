@@ -1,3 +1,4 @@
+/* HEADER GLASS FIXO */
 .glass-header {
   position: fixed;
   top: 0;
@@ -12,28 +13,12 @@
   overflow: hidden;
 }
 
-.nav-menu a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 2px;
-  width: 0%;
-  background-color: #00ffff;
-  transition: width 0.3s ease;
-}
-
-.nav-menu a.active::after {
-  width: 100%;
-}
-
-/* Quando o menu estiver aberto */
+/* HEADER EXPANDIDO AO ABRIR MENU */
 .glass-header.expanded {
-  height: 260px; /* Altura extra para mostrar os links */
+  height: 260px;
 }
 
-/* Container central do header */
+/* CONTAINER CENTRAL */
 .header-container {
   max-width: 1200px;
   margin: auto;
@@ -43,7 +28,7 @@
   position: relative;
 }
 
-/* Logo */
+/* LOGO */
 .logo {
   color: #00ffff;
   font-family: monospace;
@@ -55,7 +40,7 @@
   color: #2196f3;
 }
 
-/* Ícone do menu hamburguer */
+/* ÍCONE HAMBURGUER */
 .menu-toggle {
   display: none;
   font-size: 28px;
@@ -63,7 +48,7 @@
   cursor: pointer;
 }
 
-/* Navegação (modo desktop) */
+/* NAVEGAÇÃO DESKTOP */
 .nav-menu {
   display: flex;
   gap: 30px;
@@ -78,19 +63,20 @@
   transition: color 0.3s ease;
 }
 
-/* Underline animado */
+/* BARRINHA ANIMADA */
 .nav-menu a::after {
   content: "";
   position: absolute;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -4px;
-  width: 0%;
   height: 2px;
+  width: 0%;
   background-color: #00ffff;
   transition: width 0.3s ease;
 }
 
+/* QUANDO ATIVA OU HOVER */
 .nav-menu a:hover::after,
 .nav-menu a.active::after {
   width: 100%;
@@ -101,7 +87,7 @@
   color: #00ffff;
 }
 
-/* Responsivo (mobile) */
+/* RESPONSIVO (MOBILE) */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -116,7 +102,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding-top: 70px; /* espaço para logo + botão */
+    padding-top: 70px;
   }
 
   .glass-header.expanded .nav-menu {
@@ -125,5 +111,9 @@
 
   .nav-menu a {
     font-size: 18px;
+  }
+
+  .nav-menu a::after {
+    bottom: -2px;
   }
 }
