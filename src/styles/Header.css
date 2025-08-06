@@ -12,12 +12,12 @@
   overflow: hidden;
 }
 
-/* Quando o menu estiver aberto, header aumenta de altura */
+/* Quando o menu estiver aberto */
 .glass-header.expanded {
-  height: 260px; /* altura suficiente para mostrar o menu */
+  height: 260px; /* Altura extra para mostrar os links */
 }
 
-/* Container principal do header */
+/* Container central do header */
 .header-container {
   max-width: 1200px;
   margin: auto;
@@ -47,7 +47,7 @@
   cursor: pointer;
 }
 
-/* Navegação padrão (desktop) */
+/* Navegação (modo desktop) */
 .nav-menu {
   display: flex;
   gap: 30px;
@@ -62,15 +62,17 @@
   transition: color 0.3s ease;
 }
 
+/* Underline animado */
 .nav-menu a::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -4px;
   width: 0%;
   height: 2px;
   background-color: #00ffff;
-  transition: width 0.3s;
+  transition: width 0.3s ease;
 }
 
 .nav-menu a:hover::after,
@@ -83,7 +85,7 @@
   color: #00ffff;
 }
 
-/* RESPONSIVO */
+/* Responsivo (mobile) */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -98,7 +100,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding-top: 70px; /* deixa espaço para logo e ícone */
+    padding-top: 70px; /* espaço para logo + botão */
   }
 
   .glass-header.expanded .nav-menu {

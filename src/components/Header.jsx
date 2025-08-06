@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Header.css';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('inicio');
+  const [activeSection, setActiveSection] = useState('hero');
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleLinkClick = () => setIsOpen(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,10 +35,6 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = () => {
-    setIsOpen(false); // Fecha o menu ao clicar em um link
-  };
-
   return (
     <header className={`glass-header ${isOpen ? 'expanded' : ''}`}>
       <div className="header-container">
@@ -45,7 +43,7 @@ function Header() {
         </div>
 
         <div className="menu-toggle" onClick={toggleMenu}>
-          <FaBars />
+          {isOpen ? <FaTimes /> : <FaBars />}
         </div>
 
         <nav className="nav-menu">
