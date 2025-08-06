@@ -5,15 +5,19 @@
       transparent 1px
     ),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px; /* tamanho dos quadrados */
+  background-size: 40px 40px;
   background-position: center;
   color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 140px 20px 100px;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  min-height: 100vh;
 }
 
 .hero::before {
@@ -29,45 +33,6 @@
   z-index: 0;
   transition: top 0.1s ease, left 0.1s ease;
 }
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-  z-index: 1;
-  position: relative;
-}
-
-.social-icons a {
-  color: #ccc;
-  font-size: 24px;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.social-icons a:hover {
-  color: #00cfff;
-  transform: scale(1.2);
-}
-
-.scroll-indicator {
-  margin-top: -10px;
-  font-size: 24px;
-  color: #00cfff;
-  animation: bounce 2s infinite ease-in-out;
-  z-index: 1;
-  position: relative;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(8px);
-  }
-}
-
 
 #tsparticles {
   position: absolute;
@@ -87,6 +52,7 @@
   margin-bottom: 20px;
   z-index: 1;
   position: relative;
+  box-shadow: 0 0 15px rgba(0, 207, 255, 0.4);
 }
 
 .titulo {
@@ -109,6 +75,7 @@
   margin-bottom: 30px;
   z-index: 1;
   position: relative;
+  max-width: 700px;
 }
 
 .azul {
@@ -126,6 +93,7 @@
   flex-wrap: wrap;
   z-index: 1;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .btn {
@@ -140,7 +108,7 @@
   align-items: center;
   gap: 10px;
   box-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .btn:hover {
@@ -157,4 +125,71 @@
 
 .btn-outline:hover {
   background-color: rgba(0, 207, 255, 0.1);
+}
+
+/* Ícones sociais */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  z-index: 1;
+  position: relative;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #ccc;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00cfff;
+  transform: scale(1.2);
+}
+
+/* Indicador de scroll */
+.scroll-indicator {
+  font-size: 24px;
+  color: #00cfff;
+  animation: bounce 2s infinite ease-in-out;
+  z-index: 1;
+  position: relative;
+  margin-top: 10px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .descricao {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
