@@ -82,7 +82,6 @@
     top: 1px;
     right: 25px;
     z-index: 2001;
-    width: 100%;
   }
 
   .nav-menu {
@@ -93,7 +92,7 @@
     position: absolute;
     top: 8px; /* Espaçamento ideal abaixo do header */
     left: 0;
-    width: 100%;
+    width: 120%;
     padding: 25px 0;
     background-color: rgba(0, 0, 0, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
