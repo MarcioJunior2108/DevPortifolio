@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Hero.css";
-import { FaLink, FaRocket } from "react-icons/fa";
+import { FaLink, FaRocket, FaGithub, FaLinkedinIn, FaEnvelope, FaChevronDown } from "react-icons/fa";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { TypeAnimation } from "react-type-animation";
 import avatar from "../assets/eumelhor.png";
-import { useEffect } from "react";
-import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
-import { FaChevronDown } from 'react-icons/fa'
 
 function Hero() {
   useEffect(() => {
     const heroSection = document.querySelector(".hero");
+    if (!heroSection) return;
+
+    let frameId;
 
     const handleMouseMove = (e) => {
       const x = e.clientX;
       const y = e.clientY;
-      heroSection.style.setProperty("--mouse-x", `${x}px`);
-      heroSection.style.setProperty("--mouse-y", `${y}px`);
+
+      frameId = requestAnimationFrame(() => {
+        heroSection.style.setProperty("--mouse-x", `${x}px`);
+        heroSection.style.setProperty("--mouse-y", `${y}px`);
+      });
     };
 
     heroSection.addEventListener("mousemove", handleMouseMove);
-    return () => heroSection.removeEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      heroSection.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
+
   const particlesInit = async (engine) => {
     await loadSlim(engine);
   };
@@ -33,9 +41,7 @@ function Hero() {
         id="tsparticles"
         init={particlesInit}
         options={{
-          background: {
-            color: "transparent", // ⬅️ aqui está a correção
-          },
+          background: { color: "transparent" },
           fpsLimit: 60,
           particles: {
             color: { value: "#00cfff" },
@@ -51,9 +57,7 @@ function Hero() {
               speed: 0.6,
               outModes: { default: "bounce" },
             },
-            number: {
-              value: 60,
-            },
+            number: { value: 60 },
             opacity: { value: 0.3 },
             shape: { type: "circle" },
             size: { value: { min: 1, max: 3 } },
@@ -101,7 +105,7 @@ function Hero() {
           <FaLink /> Conectar
         </a>
       </div>
-      {/* ...dentro do JSX... */}
+
       <div className="social-icons">
         <a
           href="https://github.com/MarcioJunior2108"
@@ -117,11 +121,11 @@ function Hero() {
         >
           <FaLinkedinIn />
         </a>
-        <a href="marciojunior.prowork@gmail.com">
+        <a href="mailto:marciojunior.prowork@gmail.com">
           <FaEnvelope />
         </a>
       </div>
-      {/* ...dentro do JSX, abaixo de .social-icons */}
+
       <div className="scroll-indicator">
         <FaChevronDown />
       </div>
