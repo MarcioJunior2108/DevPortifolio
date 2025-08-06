@@ -2,9 +2,9 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1px 30px;
+  padding: 12px 30px;
   backdrop-filter: blur(15px);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -24,13 +24,21 @@
   font-family: monospace;
   font-size: 20px;
   user-select: none;
-  margin: 10px 0;
 }
 
 .logo .highlight {
   color: #2196f3;
 }
 
+/* Ícone do menu hamburguer */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #00ffff;
+  cursor: pointer;
+}
+
+/* Navegação padrão */
 .nav-menu {
   display: flex;
   gap: 30px;
@@ -40,8 +48,9 @@
   position: relative;
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-menu a::after {
@@ -65,43 +74,42 @@
   color: #00ffff;
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  color: #00ffff;
-  cursor: pointer;
-}
-
 /* RESPONSIVO */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 18px;
-    right: 20px;
-    z-index: 1001;
+    top: 20px;
+    right: 25px;
+    z-index: 2001;
   }
 
   .nav-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    gap: 25px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 25px 0;
+    background-color: rgba(0, 0, 0, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    z-index: 1000;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2000;
   }
 
   .nav-menu.open {
-    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .nav-menu a {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
