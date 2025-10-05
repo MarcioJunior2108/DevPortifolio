@@ -7,6 +7,8 @@ import { useInView } from '../hook/useInView'; // certifique-se que o caminho es
 import imgAi from "../assets/dashboardinfoproduto.png";
 import imgBlockchain from "../assets/hellolysa.png";
 import imgDashboard from "../assets/simuladordeenergiasolar.png";
+import imgBiosite from "../assets/BioSiteJenifer.png";
+import imMusicPlay from "../assets/SiteMusicPlay.png"
 
 const projetos = [
   {
@@ -38,6 +40,24 @@ const projetos = [
     live: "https://simulador-solar-lyart.vercel.app/",
     cor: "verde",
     imagem: imgDashboard,
+  },
+  {
+    titulo: "Bio Site - Jenifer Henrique",
+    descricao: "Bio Site para vendas de produtos com filtro de busca rede sociais imbutido.",
+    techs: ["React", "JavaScript", "HTML5", "CSS3", "Vite", "EmailJS"],
+    code: "",
+    live: "https://loja-jenifer-henrique.vercel.app/",
+    cor: "rosa",
+    imagem: imgBiosite,
+  },
+  {
+    titulo: "NeuraMusic",
+    descricao: "Uma plataforma de Streming similar ao Spotify",
+    techs: ["React", "JavaScript", "HTML5", "CSS3", "Vite", "EmailJS"],
+    code: "",
+    live: "https://playlist-music-sand.vercel.app/",
+    cor: "verde",
+    imagem: imgMusicPlay,
   }
 ];
 
