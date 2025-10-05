@@ -1,7 +1,7 @@
-import React from 'react';
-import '../styles/Projects.css';
-import { FaCode, FaExternalLinkAlt } from 'react-icons/fa';
-import { useInView } from '../hook/useInView'; // verifique se o caminho está correto
+import React from "react";
+import "../styles/Projects.css";
+import { FaCode, FaExternalLinkAlt } from "react-icons/fa";
+import { useInView } from "../hook/useInView"; // verifique se o caminho está correto
 
 // Imagens dos projetos
 import imgAi from "../assets/dashboardinfoproduto.png";
@@ -22,9 +22,9 @@ const projetos = [
     imagem: imgAi,
   },
   {
-    titulo: "Hello Lysa – Psicóloga Virtual (Privado)",
+    titulo: "Hello Lysa – Psicóloga Virtual (Stadbay)",
     descricao:
-      "Aplicação SaaS baseada em IA para suporte emocional 24/7. A Lysa utiliza modelos de linguagem avançados para oferecer empatia, escuta ativa e orientações personalizadas com histórico de sessões e plano de bem-estar.",
+      "SaaS inovador de saúde emocional 24/7, integrando Inteligência Artificial para escuta ativa, empatia e orientações personalizadas. Conta com histórico de sessões, plano de bem-estar dinâmico e interface acolhedora para acompanhamento contínuo.",
     techs: ["React", "Node.js", "OpenAI", "Supabase", "Express", "Vercel"],
     code: "#",
     live: "https://lysa-frontend.vercel.app/",
@@ -43,7 +43,8 @@ const projetos = [
   },
   {
     titulo: "Bio Site - Jenifer Henrique",
-    descricao: "Bio Site para vendas de produtos com filtro de busca e redes sociais embutidas.",
+    descricao:
+      "Bio Site para vendas de produtos com filtro de busca e redes sociais embutidas.",
     techs: ["React", "JavaScript", "HTML5", "CSS3", "Vite", "EmailJS"],
     code: "",
     live: "https://loja-jenifer-henrique.vercel.app/",
@@ -58,11 +59,11 @@ const projetos = [
     live: "https://playlist-music-sand.vercel.app/",
     cor: "verde",
     imagem: imgMusicPlay,
-  }
+  },
 ];
 
 function BtnLink({ href, className, children, ariaLabel }) {
-  if (!href || href === '#') return null;
+  if (!href || href === "#") return null;
   return (
     <a
       href={href}
@@ -81,19 +82,23 @@ function Projetos() {
 
   return (
     <section
-      className={`projetos ${isVisible ? 'ativo' : ''}`}
+      className={`projetos ${isVisible ? "ativo" : ""}`}
       id="projetos"
       ref={ref}
       aria-labelledby="titulo-projetos"
     >
-      <h2 id="titulo-projetos" className="titulo-projetos">Projetos Inovadores</h2>
-      <p className="subtitulo-projetos">Criando o futuro através de código e tecnologia</p>
+      <h2 id="titulo-projetos" className="titulo-projetos">
+        Projetos Inovadores
+      </h2>
+      <p className="subtitulo-projetos">
+        Criando o futuro através de código e tecnologia
+      </p>
 
       <div className="cards-projetos">
         {projetos.map((proj, index) => (
           <article
             key={`${proj.titulo}-${index}`}
-            className={`card-projeto ${proj.cor} ${isVisible ? 'ativo' : ''}`}
+            className={`card-projeto ${proj.cor} ${isVisible ? "ativo" : ""}`}
             style={{ transitionDelay: `${index * 0.2}s` }}
           >
             <img
