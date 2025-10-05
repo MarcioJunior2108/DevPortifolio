@@ -27,7 +27,7 @@ const projetos = [
       "Aplicação SaaS baseada em IA para suporte emocional 24/7. A Lysa utiliza modelos de linguagem avançados para oferecer empatia, escuta ativa e orientações personalizadas com histórico de sessões e plano de bem-estar.",
     techs: ["React", "Node.js", "OpenAI", "Supabase", "Express", "Vercel"],
     code: "#",
-    live: "#",
+    live: "https://lysa-frontend.vercel.app/",
     cor: "rosa",
     imagem: imgBlockchain,
   },
