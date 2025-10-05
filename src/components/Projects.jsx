@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/Projects.css';
 import { FaCode, FaExternalLinkAlt } from 'react-icons/fa';
-import { useInView } from '../hook/useInView'; // certifique-se que o caminho esteja certo
+import { useInView } from '../hook/useInView'; // verifique se o caminho está correto
 
 // Imagens dos projetos
 import imgAi from "../assets/dashboardinfoproduto.png";
 import imgBlockchain from "../assets/hellolysa.png";
 import imgDashboard from "../assets/simuladordeenergiasolar.png";
 import imgBiosite from "../assets/BioSiteJenifer.png";
-import imMusicPlay from "../assets/SiteMusicPlay.png"
+import imgMusicPlay from "../assets/SiteMusicPlay.png";
 
 const projetos = [
   {
@@ -43,7 +43,7 @@ const projetos = [
   },
   {
     titulo: "Bio Site - Jenifer Henrique",
-    descricao: "Bio Site para vendas de produtos com filtro de busca rede sociais imbutido.",
+    descricao: "Bio Site para vendas de produtos com filtro de busca e redes sociais embutidas.",
     techs: ["React", "JavaScript", "HTML5", "CSS3", "Vite", "EmailJS"],
     code: "",
     live: "https://loja-jenifer-henrique.vercel.app/",
@@ -52,7 +52,7 @@ const projetos = [
   },
   {
     titulo: "NeuraMusic",
-    descricao: "Uma plataforma de Streming similar ao Spotify",
+    descricao: "Uma plataforma de streaming similar ao Spotify.",
     techs: ["React", "JavaScript", "HTML5", "CSS3", "Vite", "EmailJS"],
     code: "",
     live: "https://playlist-music-sand.vercel.app/",
@@ -60,6 +60,21 @@ const projetos = [
     imagem: imgMusicPlay,
   }
 ];
+
+function BtnLink({ href, className, children, ariaLabel }) {
+  if (!href || href === '#') return null;
+  return (
+    <a
+      href={href}
+      className={className}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={ariaLabel}
+    >
+      {children}
+    </a>
+  );
+}
 
 function Projetos() {
   const [ref, isVisible] = useInView({ threshold: 0.2 });
@@ -69,36 +84,51 @@ function Projetos() {
       className={`projetos ${isVisible ? 'ativo' : ''}`}
       id="projetos"
       ref={ref}
+      aria-labelledby="titulo-projetos"
     >
-      <h2 className="titulo-projetos">Projetos Inovadores</h2>
+      <h2 id="titulo-projetos" className="titulo-projetos">Projetos Inovadores</h2>
       <p className="subtitulo-projetos">Criando o futuro através de código e tecnologia</p>
 
       <div className="cards-projetos">
         {projetos.map((proj, index) => (
-          <div
-            key={index}
+          <article
+            key={`${proj.titulo}-${index}`}
             className={`card-projeto ${proj.cor} ${isVisible ? 'ativo' : ''}`}
             style={{ transitionDelay: `${index * 0.2}s` }}
           >
-            <img src={proj.imagem} alt={proj.titulo} className="imagem-projeto" />
+            <img
+              src={proj.imagem}
+              alt={`Prévia do projeto: ${proj.titulo}`}
+              className="imagem-projeto"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="conteudo-projeto">
               <h4>{proj.titulo}</h4>
               <p>{proj.descricao}</p>
-              <div className="tags-projeto">
+              <div className="tags-projeto" aria-label="Tecnologias utilizadas">
                 {proj.techs.map((tech, i) => (
-                  <span key={i}>{tech}</span>
+                  <span key={`${proj.titulo}-tech-${i}`}>{tech}</span>
                 ))}
               </div>
               <div className="botoes-projeto">
-                <a href={proj.code} className="btn-proj" target="_blank" rel="noreferrer">
+                <BtnLink
+                  href={proj.code}
+                  className="btn-proj"
+                  ariaLabel={`Abrir código de ${proj.titulo} em uma nova aba`}
+                >
                   <FaCode /> Code
-                </a>
-                <a href={proj.live} className="btn-proj azul" target="_blank" rel="noreferrer">
+                </BtnLink>
+                <BtnLink
+                  href={proj.live}
+                  className="btn-proj azul"
+                  ariaLabel={`Abrir versão ao vivo de ${proj.titulo} em uma nova aba`}
+                >
                   <FaExternalLinkAlt /> Live
-                </a>
+                </BtnLink>
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>
